@@ -1,0 +1,13 @@
+diff --git a/node_modules/metro-transform-plugins/src/constant-folding-plugin.js b/node_modules/metro-transform-plugins/src/constant-folding-plugin.js
+index 141cf5d..4fbae7e 100644
+--- a/node_modules/metro-transform-plugins/src/constant-folding-plugin.js
++++ b/node_modules/metro-transform-plugins/src/constant-folding-plugin.js
+@@ -109,7 +109,7 @@ function constantFoldingPlugin(context) {
+   const FunctionDeclaration = {
+     exit(path, state) {
+       const binding =
+-        path.node.id != null && path.scope.getBinding(path.node.id.name);
++        path.node.id != null && path.scope.parent.getBinding(path.node.id.name);
+ 
+       if (binding && !binding.referenced) {
+         state.stripped = true;
